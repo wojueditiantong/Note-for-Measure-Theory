@@ -4,13 +4,37 @@
 \subsection{Classes of sets}
 
 Let \textbf{\textit{$\Omega$}} be a set.
-\begin{definition}[Semi-algebra]
-A collection of $\mathfrak{A}$ of subsets of $\Omega$ is called a semi-algebra on $\Omega$ if:\\
 
-\begin{enumerate}
-    \item $\Omega \in \textbf{\textit{A}}$
-    %\item $\textbf{B} in \mathfrak{A} \implies \textbf{B^c} = \sum_n \textbf{B_n} where B_1,B_2,\dots B_n \dots  are disjoint.$
-    \item dfge
-\end{enumerate}
-    
+\begin{definition}[Semi-algebra]\label{def:semi-algebra}
+    A nonempty collection  \textbf{S} of subsets of $\Omega$ is called a semi-algebra on $\Omega$ if:\smallskip
+    \begin{enumerate}
+        \item $\Omega \in \textbf{\textit{S}}$.
+        \item $A , B \in \textbf{S} \implies A \cap B \in \textbf{S} $
+        \item $A \in \textbf{S} \implies A^c$ is a finite disjoint union of sets in \textbf{S}
+    \end{enumerate}
 \end{definition}
+
+\begin{definition}[Algebra]\label{def:algebra}
+    A nonempty collection  \textbf{S} of subsets of $\Omega$ is called a algebra on $\Omega$ if:\smallskip
+    \begin{enumerate}
+        \item $\Omega \in \textbf{\textit{S}}$.
+        \item $A , B \in \textbf{S} \implies A \cap B \in \textbf{S} $
+        \item $A \in \textbf{S} \implies A^c \in \textbf{S}$ 
+    \end{enumerate}
+\end{definition}
+
+Comparing these two definitions,we can easily find that a algebra is always a semi-algebra,since $A^c = A^c \in \textbf{S}$
+
+\begin{definition}[\texorpdfstring{\textbf{$\sigma-$}}{}algebra]\label{def:sigma-algebra}
+    A nonempty collection  \textbf{S} of subsets of $\Omega$ is called a $\sigma$-algebra on $\Omega$ if:\smallskip
+    \begin{enumerate}
+        \item $\Omega \in \textbf{\textit{S}}$.
+        \item $A \in \textbf{S} \implies A^c \in \textbf{S}$
+        \item $A_i \in \textbf{S}$ is a countable sequence of sets,$\implies \cup_i A_i \in \textbf{S}$
+    \end{enumerate}
+\end{definition}
+
+We can easily find that a $\sigma-$algebra is always a algebra,and surely semi-algebra,namely:\smallskip
+
+
+
