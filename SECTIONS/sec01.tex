@@ -4,7 +4,10 @@
 \subsection{Classes of sets}
 
 Let \textbf{\textit{$\Omega$}} be a set.
-
+\begin{definition}[$\pi$-system]
+    Suppose \textbf{S} is a set.If $\forall A,B \in \textbf{S},A\cap B \in \textbf{S}$,we say \textbf{S} is a $\pi$-system.  
+\end{definition}
+   
 \begin{definition}[Semi-algebra]\label{def:semi-algebra}
     A nonempty collection  \textbf{S} of subsets of $\Omega$ is called a semi-algebra on $\Omega$ if:\smallskip
     \begin{enumerate}
@@ -12,6 +15,9 @@ Let \textbf{\textit{$\Omega$}} be a set.
         \item $A , B \in \textbf{S} \implies A \cap B \in \textbf{S} $
         \item $A \in \textbf{S} \implies A^c$ is a finite disjoint union of sets in \textbf{S}
     \end{enumerate}
+
+    Obviously,semi-algebra  is a $\pi$-system.
+
 \end{definition}
 
 \begin{definition}[Algebra]\label{def:algebra}
@@ -28,13 +34,80 @@ Comparing these two definitions,we can easily find that a algebra is always a se
 \begin{definition}[\texorpdfstring{\textbf{$\sigma-$}}{}algebra]\label{def:sigma-algebra}
     A nonempty collection  \textbf{S} of subsets of $\Omega$ is called a $\sigma$-algebra on $\Omega$ if:\smallskip
     \begin{enumerate}
-        \item $\Omega \in \textbf{\textit{S}}$.
         \item $A \in \textbf{S} \implies A^c \in \textbf{S}$
-        \item $A_i \in \textbf{S}$ is a countable sequence of sets,$\implies \cup_i A_i \in \textbf{S}$
+        \item $A_i \in \textbf{S}$ is a countable sequence of sets$\implies \bigcup_i A_i \in \textbf{S}$
+       % \item $\Omega \in \textbf{\textit{S}}$(not necessary).
     \end{enumerate}
 \end{definition}
 
-We can easily find that a $\sigma-$algebra is always a algebra,and surely semi-algebra,namely:\smallskip
+We can easily find that a $\sigma-$algebra is always a algebra,and surely semi-algebra.
+Here are some examples:\smallskip
+
+\begin{example}[Semi-algebra]
+   Let $\Omega = (0,1],\textbf{S}=\{(a,b]:0\leqslant a<b\leqslant 1\}$,then \textbf{S} is a semi-algebra on $\Omega$.
+\end{example}
+
+\begin{example}[Algebra]
+    Let $\Omega = (0,1],\textbf{S}=\{\bigcup_{i=1}^n(a_i,b_i]:0\leqslant a_i<b_i\leqslant 1,n \in \N\}$,then \textbf{S} is a algebra on $\Omega$.
+\end{example}
+
+\begin{example}[\texorpdfstring{\textbf{$\sigma-$}}{}algebra]
+    Let $\Omega = \{1,2\},\textbf{S}=\{\varnothing ,\{1\},\{2\},\{1,2\}\}$,then \textbf{S} is a $\sigma$-algebra on $\Omega$.
+\end{example}
+
+Since an algebra is a semi-algebra,we want to find an algebra including a specific semi-algebra.
+
+Suppose \textbf{S} is a semi-algebra on $\Omega$,\textbf{A} is an algebra,if $\textbf{S} \subseteq \textbf{A},\textbf{A} \subseteq \textbf{F}  ,\forall \textbf{F} \in \mathcal{F} $.
+$\mathcal{F} = \{\textbf{F}: \textbf{F}\ is\ an\ algebra\ on\ \Omega,\textbf{S} \subseteq \textbf{F}\}$.We call \textbf{A} is a gengerate algebra 
+
+\begin{lemma}
+    $
+    \mathcal{S} \ is\ a \ semi-algebra,then \ \widetilde{\mathcal{S}}=\{finite\ disjoint\ unions\ of\ sets\ in\ \mathcal{S} \}
+    \\
+     is \ an \ algebra,\ called\ the\ \textbf{algebra}\ \textbf{generated}\ by\ \mathcal{S}.$
+\end{lemma}
+\begin{proof}[Proof]
+    Suppose $A=\sum_{i} S_i,B=\sum_{j} T_j \in \widetilde{\mathcal{S}} $, we assume the index sets are finite.then $A \cap B \in \widetilde{\mathcal{S}},$ The definition of $\mathcal{S}$ implies $S_i^c \in \widetilde{\mathcal{S}}$ since $S_i^c=\sum_{k}C_k$ where $C_k \in \mathcal{S}$
+\end{proof}
 
 
+
+\subsection{Measure}
+A measure $\mu$ on a set $(X,\mathcal{B})$ is a function $\mu: \mathcal{B} \rightarrow [0,\infty]$ that satisfies the following conditions:
+
+$\mu(\phi) = 0$
+If $(E_n)$ is a sequence of disjoint sets in $\mathcal{A}$, then $\mu\left(\bigcup_{n=1}^\infty E_n\right) = \sum_{n=1}^\infty \mu(E_n)$
+\subsection{Some related discussion}
+
+Someone may have taken the class of toplogy,and he may find a toplogy "looks like" a $\sigma$-algebra.Now let's recall its definition:\\ [10pt]
+\begin{definition}[topology]
+    A topology on a set X is a collection $\O$ of subsets of X satisfying
+the following properties:\smallbreak
+\begin{enumerate}
+    \item $\varnothing \in \O $ and $ X \in \O$
+    \item $A_i \in \O$ is a \textbf{arbitrary} sequence of sets$\implies \bigcup_i A_i \in \O$
+    \item $A_i \in \O$ is a finite sequence of sets$\implies \bigcap_i A_i \in \O$
+\end{enumerate}
+\end{definition}
+    The elements $O \in \O$ are called open sets and the pair (X, $\O$) is called a topological
+space.
+
+    Although a $\sigma$-algebra looks like a toplogy with defining the sets in it as open sets,but 
+we must point that $\sigma$-algebra is only close under countable union while a topology is close under
+arbitrary union,that's why a $\sigma$-algebra may not be a toplogy,
+
+\begin{example}
+    The Borel sets in [0,1], obviously. It contains all points but not all subsets.
+\end{example}
+    See more on \href{https://math.stackexchange.com/questions/2887034/sigma-algebra-v-s-topology}{sigma-algebra-v-s-topology}
+
+\newpage
+\subsection*{Problems}
+\addcontentsline{toc}{subsection}{Problems}
+
+\begin{enumerate}
+    \item Show that the interaction of two $\sigma$-algebra is a $\sigma$-algebra.\smallskip
+    \item Show that the union of two $\sigma$-algebra is never a $\sigma$-algebra unless one is included in another.\smallskip
+    \item 
+\end{enumerate}
 
